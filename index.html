@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+</head>
+<body ow-app="app">
+	<div ow-controller="PersonCtrl">
+		{{name}}, {{age}} - {{city}}
+	</div>
+	<div ow-controller="CarCtrl">
+		{{name}} ({{year}})
+	</div>
+</body>
+<script src="one-way.js"></script>
+<script>
+	
+	/* bootstrap app */
+	(function(){
+
+		new OneWay('app')
+			.registerController('PersonCtrl', function(scope){
+				scope.name = 'Fernando Moraes';
+				scope.age = 24;
+				scope.city = "Siderópolis";
+			})
+			.registerController('CarCtrl', function(scope){
+				scope.name = 'Fusca';
+				scope.year = 1970;
+			});
+
+	})();
+
+</script>
+</html>
